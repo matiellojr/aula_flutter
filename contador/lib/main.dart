@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           Text(
-            "Pode entrar!",
+            "Pode entrar - teste !",
             style: TextStyle(
               fontSize: 30,
               color: Colors.white,

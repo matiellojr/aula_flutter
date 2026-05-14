@@ -13,21 +13,37 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int x = 0;
+
   void decrement() {
-    print('decrement');
+    setState(() {
+      x = x - 1;
+      if (x < 0) {
+        x = 0;
+      }
+    });
+    print('decrement $x');
   }
 
   void increment() {
-    print('increment');
+    setState(() {
+      x = x + 1;
+    });
+    print('increment $x');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 87, 82, 81),
+      backgroundColor: const Color.fromARGB(255, 156, 22, 22),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -39,9 +55,9 @@ class HomePage extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const Text(
-            '0',
-            style: TextStyle(
+          Text(
+            '$x',
+            style: const TextStyle(
               fontSize: 100,
               color: Colors.white,
               fontWeight: FontWeight.w100,
@@ -52,6 +68,12 @@ class HomePage extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: decrement,
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  // padding: const EdgeInsets.all(32),
+                  // fixedSize: const Size(100, 100),
+                  textStyle: TextStyle(color: Colors.black, fontSize: 16),
+                ),
                 child: Text(
                   'Saiu',
                   style: TextStyle(
@@ -60,8 +82,14 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(width: 16),
               TextButton(
                 onPressed: increment,
+                style: TextButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 236, 238, 237),
+                  // padding: const EdgeInsets.all(32),
+                  // fixedSize: const Size(100, 100),
+                ),
                 child: Text(
                   'Entrou',
                   style: TextStyle(color: Colors.green, fontSize: 16),

@@ -44,60 +44,68 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 156, 22, 22),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            "Pode entrar!",
-            style: TextStyle(
-              fontSize: 30,
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(
+              'https://i.pinimg.com/236x/76/7f/74/767f7413971f9aa547b2bc5205894729.jpg',
             ),
+            //AssetImage('assets/images/img_entrada_restaurante.jpg'),
+            fit: BoxFit.fill,
           ),
-          Text(
-            '$x',
-            style: const TextStyle(
-              fontSize: 100,
-              color: Colors.white,
-              fontWeight: FontWeight.w100,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              "Pode entrar!",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                onPressed: decrement,
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  // padding: const EdgeInsets.all(32),
-                  // fixedSize: const Size(100, 100),
-                  textStyle: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                child: Text(
-                  'Saiu',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 219, 22, 8),
-                    fontSize: 16,
+            Text(
+              '$x',
+              style: const TextStyle(
+                fontSize: 100,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: decrement,
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    // padding: const EdgeInsets.all(32),
+                    // fixedSize: const Size(100, 100),
+                    textStyle: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                  child: Text(
+                    'Saiu',
+                    style: TextStyle(color: Colors.red, fontSize: 16),
                   ),
                 ),
-              ),
-              const SizedBox(width: 16),
-              TextButton(
-                onPressed: increment,
-                style: TextButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 236, 238, 237),
-                  // padding: const EdgeInsets.all(32),
-                  // fixedSize: const Size(100, 100),
+                const SizedBox(width: 16),
+                TextButton(
+                  onPressed: increment,
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    // padding: const EdgeInsets.all(32),
+                    // fixedSize: const Size(100, 100),
+                  ),
+                  child: Text(
+                    'Entrou',
+                    style: TextStyle(color: Colors.green, fontSize: 16),
+                  ),
                 ),
-                child: Text(
-                  'Entrou',
-                  style: TextStyle(color: Colors.green, fontSize: 16),
-                ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
